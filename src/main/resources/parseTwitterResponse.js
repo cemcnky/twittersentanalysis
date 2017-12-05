@@ -28,7 +28,5 @@ for (index = 0; index < tweets.length; ++index) {
 
 print(payload);
 
-payloadForAnalysis = encodeURIComponent("tweet=I+hate+it");
-payloadForAnalysis;
-// use camunda-spin jsonPath to test if date is a holiday
-//!holidays.jsonPath(query).elementList().isEmpty();
+payloadForAnalysis = "tweet=I+hate+it";
+payloadForAnalysis; //payloadForAnalysis=payload

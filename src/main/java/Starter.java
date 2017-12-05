@@ -17,9 +17,9 @@ public class Starter implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
 
         Map<String, Object> variables = new HashMap<String, Object>();
-        variables.put("url", "http://localhost:8081/tweets?search=microsoft");
+        variables.put("url", "http://localhost:8090/tweets?search=microsoft");
         variables.put("termCounter", 0);
-        variables.put("payloadForAnalysis", " sad");
+        variables.put("payloadForAnalysis", "tweet=thisMustBeChanged");
 
         runtimeService.startProcessInstanceByKey("SentimentAnalysisProcess", variables);
 
