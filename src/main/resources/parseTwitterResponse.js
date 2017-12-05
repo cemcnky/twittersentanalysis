@@ -22,11 +22,10 @@ for (var i = 0; i < elements.length; i++) {
 payload = "tweet=";
 
 for (index = 0; index < tweets.length; ++index) {
-    payload += encodeURIComponent(tweets[index]) + '&' + "tweet=";
+    payload += encodeURI(tweets[index]) + '&' ;
+    if (index != tweets.length -1) {
+        payload = payload.concat("tweet=");
+    }
 }
 
-
-print(payload);
-
-payloadForAnalysis = "tweet=I+hate+it";
-payloadForAnalysis; //payloadForAnalysis=payload
+payload;
