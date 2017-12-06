@@ -45,14 +45,13 @@
             </list>
         </property>
 
+        <property name="historyLevel" value="HISTORY_LEVEL_NONE"/>
+
     </bean>
 
     <bean id="processEngine" class="org.camunda.bpm.engine.spring.ProcessEngineFactoryBean">
         <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
     </bean>
-    <!--<bean id="loadTwitterData" class="LoadTwitterData"/>
-    <bean id="analyzeTweet" class="AnalyzeTweet"/>
-    <bean id="generateReport" class="GenerateReport"/>-->
 
 
     <bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
