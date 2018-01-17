@@ -1,13 +1,11 @@
 // fetch execution variables
 var response = connector.getVariable("response");
 
-print("response from analysis service: " + response);
+//print("response from analysis service: " + response);
 var json = S(response); //camunda spin, parsing json
 
 var tweets = json.prop("tweets");
 var jsonObjForReportSer = [];
-
-print("hii");
 
 var termCounter = connector.getVariable("termCounter");
 var termResultsMap = connector.getVariable("termResultsMap");

@@ -1,13 +1,13 @@
 package bpmn;
 
 import org.camunda.bpm.engine.RuntimeService;
+import org.camunda.bpm.engine.impl.persistence.entity.ProcessInstanceWithVariablesImpl;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,12 +22,12 @@ public class BpmnController {
 	private RuntimeService runtimeService;
 
 	@RequestMapping(value = "/bpmn", method = RequestMethod.GET)
-	public ResponseEntity<byte[]> searchItems(@RequestParam String items){
+	public ResponseEntity<byte[]> searchItems(@RequestParam String items) {
 
 		String[] itemsArray = items.split(",");
 
 		if (itemsArray.length != 3) {
-			return null;
+			throw new RuntimeException("There must be 3 terms!");
 		}
 
 		List<String> termList = new ArrayList<String>();
@@ -49,14 +49,7 @@ public class BpmnController {
 
 		ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("SentimentAnalysisProcess", variables);
 
-		while (!processInstance.isEnded()) {
-
-		}
-
-		Map<String, Object> serviceVariables = runtimeService.getVariables(processInstance.getId());
-		byte[] reportResponse = (byte[]) serviceVariables.get("reportResponse");
-
-
+		byte[] reportResponse = (byte[]) ((ProcessInstanceWithVariablesImpl) processInstance).getVariables().get("reportResponse");
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.parseMediaType("application/pdf"));

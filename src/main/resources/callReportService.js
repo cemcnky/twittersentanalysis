@@ -19,7 +19,7 @@ var bodyStream = downloadFile(payloadStringfied);
 
 execution.setVariable("reportResponse", bodyStream);
 
-
+print("Report Service is called");
 function downloadFile(payloadStringfied)
 {
     with (new JavaImporter(org.jsoup, java.io.BufferedInputStream))

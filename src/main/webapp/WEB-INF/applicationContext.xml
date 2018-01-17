@@ -8,8 +8,6 @@
     <context:annotation-config/>
     <context:component-scan base-package="bpmn"/>
 
-    <bean class="bpmn.Starter"/>
-
     <bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
         <property name="targetDataSource">
             <bean class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
@@ -61,8 +59,6 @@
     <bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"/>
     <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
     <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>
-
-    <bean id="fileSaver" class="bpmn.FileSaver"/>
 
 </beans>
 
