@@ -1,15 +1,18 @@
+package bpmn;
+
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Starter implements InitializingBean {
+public class Starter  {
 
     @Autowired
     private RuntimeService runtimeService;
@@ -19,7 +22,7 @@ public class Starter implements InitializingBean {
     private ResourcePatternResolver resourceLoader;
 
     public void afterPropertiesSet() throws Exception {
-        Map<String, Object> variables = new HashMap<String, Object>();
+        /*Map<String, Object> variables = new HashMap<String, Object>();
 
         List<String> termList = new ArrayList<String>();
         termList.add("microsoft");
@@ -38,7 +41,7 @@ public class Starter implements InitializingBean {
 
         System.out.println("Process is started to run!");
 
-        runtimeService.startProcessInstanceByKey("SentimentAnalysisProcess", variables);
+        runtimeService.startProcessInstanceByKey("SentimentAnalysisProcess", variables);*/
     }
 
 
@@ -54,4 +57,5 @@ public class Starter implements InitializingBean {
     public void setResourceLoader(ResourcePatternResolver resourceLoader) {
         this.resourceLoader = resourceLoader;
     }
+
 }

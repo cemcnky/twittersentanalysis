@@ -6,8 +6,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
+    <context:component-scan base-package="bpmn"/>
 
-    <bean class="Starter"/>
+    <bean class="bpmn.Starter"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
         <property name="targetDataSource">
@@ -61,7 +62,7 @@
     <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
     <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>
 
-    <bean id="fileSaver" class="FileSaver"/>
+    <bean id="fileSaver" class="bpmn.FileSaver"/>
 
 </beans>
 

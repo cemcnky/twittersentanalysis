@@ -46,7 +46,7 @@ response;]]></camunda:script>
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
-            <camunda:inputParameter name="url">http://localhost:5001</camunda:inputParameter>
+            <camunda:inputParameter name="url">http://localhost:5000</camunda:inputParameter>
             <camunda:inputParameter name="method">POST</camunda:inputParameter>
             <camunda:inputParameter name="headers">
               <camunda:map>
