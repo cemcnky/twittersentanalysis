@@ -26,8 +26,9 @@ public class BpmnController {
 
 		String[] itemsArray = items.split(",");
 
-		if (itemsArray.length != 3) {
-			throw new RuntimeException("There must be 3 terms!");
+		int termsSize = itemsArray.length;
+		if (termsSize < 1) {
+			throw new RuntimeException("There must be at least 1 term!");
 		}
 
 		List<String> termList = new ArrayList<String>();
@@ -42,7 +43,8 @@ public class BpmnController {
 
 		variables.put("termList", termList);
 		variables.put("termResultsMap", map);
-		variables.put("termCounter", 0); //3 terms
+		variables.put("termCounter", 0); // till all terms are processed (termsSize)
+		variables.put("termsSize", termsSize);
 		variables.put("reportResponse", null);
 
 		System.out.println("Process is starting to run!");

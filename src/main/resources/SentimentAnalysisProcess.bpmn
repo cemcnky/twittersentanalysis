@@ -71,11 +71,11 @@ response;]]></camunda:script>
       <bpmn:outgoing>SequenceFlow_1np0p37</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_0r0kl18</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="SequenceFlow_1np0p37" name="termCounter == 3" sourceRef="ExclusiveGateway_1oqaxrz" targetRef="ServiceTask_090jq72">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${termCounter == 3}</bpmn:conditionExpression>
+    <bpmn:sequenceFlow id="SequenceFlow_1np0p37" name="termCounter == termsSize" sourceRef="ExclusiveGateway_1oqaxrz" targetRef="ServiceTask_090jq72">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${termCounter == termsSize}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="SequenceFlow_0r0kl18" name="termCounter != 3" sourceRef="ExclusiveGateway_1oqaxrz" targetRef="Task_0ouecta">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${termCounter != 3}</bpmn:conditionExpression>
+    <bpmn:sequenceFlow id="SequenceFlow_0r0kl18" name="termCounter != termsSize" sourceRef="ExclusiveGateway_1oqaxrz" targetRef="Task_0ouecta">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${termCounter != termsSize}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1rcy50t" sourceRef="Task_0ouecta" targetRef="ServiceTask_0ouqtzr" />
     <bpmn:sequenceFlow id="SequenceFlow_0hmi9xd" sourceRef="ServiceTask_0ouqtzr" targetRef="ExclusiveGateway_1oqaxrz" />
